@@ -1,0 +1,141 @@
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+#source "gpg -d ~/.mutt/passwords.gpg |"
+source "~/.mutt/.passwords"
+
+set sort = reverse-date-received
+set sort_aux = reverse-last-date-received
+set ssl_starttls=yes
+set ssl_force_tls=yes
+set mbox_type=maildir  
+set mbox="~/Mail/inbox/"  
+set spoolfile="~/Mail/inbox/"  
+set folder="~/Mail/"  
+set record="~/Mail/sent/"  
+set postponed="~/Mail/postponed/"  
+
+set mail_check = 60
+set realname = "Christopher Caravaty"
+set from = "caravaty@gmail.com"
+set use_from = yes
+set envelope_from = yes
+
+set smtp_url = "smtps://caravaty@gmail.com@smtp.gmail.com:465/"
+set imap_user = "caravaty@gmail.com"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+ #My Editor  
+ set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "?^$"'  
+
+set postponed ="+[Gmail]/Drafts"  
+ #Local Folders  
+ set header_cache =~/.mutt/cache/headers  
+ set message_cachedir =~/.mutt/cache/bodies  
+ set certificate_file =~/.mutt/certificates  
+
+
+#Special Keybindings  
+ bind editor <space> noop  
+ macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"  
+ macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"  
+ macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"  
+ macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"  
+ bind index "a" imap-fetch-mail
+
+# G to get mail
+bind index G imap-fetch-mail
+set editor = "vim"
+set charset = "utf-8"
+set record = ''
+
+
+ #Mutt Session Security  
+ set move = no #Stop asking to "move read messages to mbox"!  
+ set imap_keepalive = 90  
+ set text_flowed=yes
+
+ #aliasfile
+ source  ~/.myalias.list
+
+# Imported Colors New 2/1/18
+color hdrdefault brightblack white
+color normal white black # plain text
+color quoted white black
+color attachment brightwhite black
+color status black blue # status bar is yellow *on blue*
+color signature magenta black
+color indicator brightwhite blue
+color tilde blue black # ~'s after message body# Message status
+color index brightyellow black ~N # New#
+color index brightgreen white "~N (~x xxxxxxxxx\.gmail\.com | ~h \"^In-[Rr]eply-[Tt]o:.*xxxxxxxxx\.gmail\.com\")" # New on reply to me
+color index yellow black ~O # Old#
+color index magenta black ~F
+color index blue black ~T
+color index red black ~D
+
+color error brightcyan black # errors yell at you in red
+color message brightcyan black # informational messages
+
+color search brightgreen black # hilite search patterns in the pager
+color tree magenta black # thread tree in index menu is magenta
+color underline yellow black
+
+# # Coloring quoted text - coloring the first 7 levels:
+# color quoted cyan black
+# color quoted1 yellow black
+# color quoted2 red black
+# color quoted3 green black
+# color quoted4 cyan black
+# color quoted5 yellow black
+# color quoted6 red black
+
+# Highlights inside the body of a message.
+
+# Color URLs
+color body brightblue black "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
+color body brightblue black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body brightblue black "news:[^ \">\t\r\n]*"
+
+# email addresses
+color body brightblue black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# Various smilies and the like
+color body brightblue white "" #
+color body brightblue white "" #
+color body brightyellow black " [;:]-*[)>(<|]" # :-) etc...
+color body brightwhite black "(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)" # *Bold* text.
+color body brightwhite black "(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)" # _Underlined_ text.
+color body brightblue black "(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)" # /Italic/ text.
+
+
+# OldColors  
+# color hdrdefault cyan default  
+# color attachment yellow default  
+# color header brightyellow default "From: "  
+# color header brightyellow default "Subject: "  
+# color header brightyellow default "Date: "  
+# color quoted green default  
+# color quoted1 cyan default  
+# color quoted2 green default  
+# color quoted3 cyan default  
+# color error   red       default     # error messages  
+# color message  white      default     # message informational messages  
+# color indicator white      red       # indicator for the "current message"  
+# color status  white      blue      # status lines in the folder index sed for the mini-help line  
+# color tree   red       default     # the "tree" display of threads within the folder index  
+# color search  white      blue      # search matches found with search within the internal pager  
+# color markers  red       default     # The markers indicate a wrapped line  
+# color index   yellow default '~O'  
+# color index   yellow default '~N'  
+# color index   brightred    default '~F'  # Flagged Messages are important!  
+# color index   blue default  '~D'      # Deleted Mails - use dark color as these are already "dealt with"  
+ # identifies email addresses  
+# color body  brightred default -\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+  
+ # identifies URLs  
+# color body  brightblue black (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+  
+
+
+
