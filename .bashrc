@@ -19,5 +19,18 @@ else
 fi
 export GPG_AGENT_INFO
 
+alias ls='ls --color --classify --human-readable'
 alias gvim="gvim 2>/dev/null"
 alias firefoxquantum="firefoxquantum 2>/dev/null"
+alias wine="wine 2>/dev/null"
+alias firefox="firefoxquantum 2>/dev/null"
+alias deluge="deluge 2>/dev/null"
+alias cp='/bin/cp -i'
+alias mv='/bin/mv -i'
+alias rm='/bin/rm -i'
+alias c='clear'
+alias ..='cd ..'
+alias ports='netstat -tulanp'
+alias v='vim'
+alias gv='gvim'
+alias apt='sudo apt'

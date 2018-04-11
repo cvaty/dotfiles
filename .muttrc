@@ -3,6 +3,7 @@ alternative_order text/plain text/enriched text/html
 #source "gpg -d ~/.mutt/passwords.gpg |"
 source "~/.mutt/.passwords"
 
+set editor="vim -c 'set spell spelllang=en'"
 set sort = reverse-date-received
 set sort_aux = reverse-last-date-received
 set ssl_starttls=yes

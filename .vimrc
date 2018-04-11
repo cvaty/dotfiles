@@ -1,4 +1,16 @@
+autocmd FileType mail set spell
 colorscheme nord
+
+
+set printoptions+=header:0
+
+set printexpr=PrintFile(v:fname_in)
+function! PrintFile(fname)
+  call system("lp " . a:fname)
+  call delete(a:fname)
+  return v:shell_error
+endfunc
+
 
 " Make external commands work through a pipe instead of a pseudo-tty
 "set noguipty
